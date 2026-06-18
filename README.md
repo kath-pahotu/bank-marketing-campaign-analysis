@@ -6,13 +6,13 @@ This project analyzes a bank marketing campaign dataset to understand customer s
 
 The dataset contains customer demographic information, financial attributes, contact history, campaign details, and whether each customer subscribed to a term deposit.
 
-This project uses an end-to-end SQL and Python workflow:
+This project focuses on SQL-based data preparation and Python-based campaign response analysis.
 
-- SQL Server prepares the data, validates the import, creates analysis-ready views, and produces business summary outputs.
-- Python continues from the SQL views to perform exploratory visualization, predictive modeling, targeting lift analysis, and model interpretation.
-- GitHub is used for project documentation and version control.
+Included in this project:
 
-Power BI is not included in this project version. A separate future project will be built specifically for dashboard design and Power BI storytelling.
+- SQL Server data import, validation, KPI calculation, and reusable views
+- Python exploratory analysis, predictive modeling, targeting lift evaluation, and model interpretation
+- GitHub documentation and project organization
 
 ## Business Objective
 
@@ -43,34 +43,14 @@ Key questions:
 7. Interpret Random Forest feature importance.
 8. Translate insights into business recommendations.
 
-## Current Project Status
 
-Completed:
+## How to Run
 
-- SQL database setup and CSV import
-- SQL data validation
-- SQL KPI and segment summary views
-- Python notebook connected to SQL Server views
-- Python EDA visualization using SQL-created segment summaries
-- Cramer's V statistical association check
-- baseline predictive modeling
-- campaign targeting lift analysis
-- Random Forest model interpretation
-- business recommendations and limitations
-- README documentation for SQL and Python analysis
-
-Not included in this project version:
-
-- Power BI dashboard development
-- dashboard screenshots
-- dashboard-specific reporting pages
-
-Future improvement ideas:
-
-- cross-validation for more robust model evaluation
-- threshold tuning based on campaign capacity
-- financial impact modeling using call cost and expected conversion value
-- a separate Power BI-focused project for dashboard design practice
+1. Run `sql/00_setup_import.sql` in SQL Server to create the database, create the raw table, import the CSV file, and check the import.
+2. Run `sql/01_bank_marketing_analysis.sql` to validate the imported data and create the analysis-ready views.
+3. Open `notebook/bank_marketing_campaign_python_analysis.ipynb`.
+4. Update the SQL Server connection string in the notebook if your SQL Server instance name is different.
+5. Run the notebook from top to bottom.
 
 ---
 
@@ -177,6 +157,21 @@ The Python notebook includes:
 - campaign targeting lift evaluation
 - Random Forest feature importance
 - business recommendations and limitations
+
+### Python Output Screenshots
+
+**Campaign Targeting Lift**
+
+![Campaign targeting lift](images/python/targeting_lift.png)
+
+**Feature Importance**
+
+![Feature importance](images/python/feature_importance.png)
+
+**Segment Conversion Patterns**
+
+![Segment conversion patterns](images/python/segment_conversion_patterns.png)
+
 
 ### Python Data Preparation
 
@@ -383,11 +378,16 @@ bank-marketing-campaign-analysis/
 │   └── README.md
 │
 └── images/
-    └── sql/
-        ├── raw_table_check.jpg
-        ├── data_quality_check.jpg
-        ├── create_analysis_ready_view.jpg
-        ├── overall_campaign_kpi.jpg
-        ├── conversion_by_segment.jpg
-        └── high_response_segment_summary.jpg
+    ├── sql/
+    │   ├── raw_table_check.jpg
+    │   ├── data_quality_check.jpg
+    │   ├── create_analysis_ready_view.jpg
+    │   ├── overall_campaign_kpi.jpg
+    │   ├── conversion_by_segment.jpg
+    │   └── high_response_segment_summary.jpg
+    │
+    └── python/
+        ├── targeting_lift.png
+        ├── feature_importance.png
+        └── segment_conversion_patterns.png
 ```
